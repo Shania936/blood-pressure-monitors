@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Pressure Monitor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; 
+      padding: 0;
+      background: #f4f4f9;
+    }
+    header, footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+    nav {
+      margin: 1em 0;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #003366;
+      font-weight: bold;
+    }
+    .page {
+      display: none;
+      padding: 20px;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #0055a5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Blood Pressure Monitor</h1>
+  </header>
+
+  <!-- Password Page -->
+  <div id="passwordPage" class="page active">
+    <h2>Login</h2>
+    <p><label>Password: <input type="password"></label></p>
+    <button onclick="goToPage('infoPage')">Login</button>
+  </div>
+
+  <!-- Basic Information Page -->
+  <div id="infoPage" class="page">
+    <h2>Basic Information</h2>
+    <form>
+      <p><label>Name: <input type="text"></label></p>
+      <p><label>Date of Birth: <input type="date"></label></p>
+      <p><label>Health Insurance Card #: <input type="text"></label></p>
+      <p><label>Change Password: <input type="password"></label></p>
+    </form>
+    <button onclick="goToPage('menuPage')">Go to Menu</button>
+  </div>
+
+  <!-- Menu Page -->
+  <div id="menuPage" class="page">
+    <h2>Menu</h2>
+    <nav>
+      <a href="#" onclick="goToPage('infoPage')">Update Basic Information</a>
+      <a href="#" onclick="goToPage('dataEntryPage')">Enter Blood Pressure Data</a>
+      <a href="#" onclick="goToPage('graphPage')">View Graph</a>
+      <a href="#" onclick="goToPage('recommendPage')">Recommendations</a>
+    </nav>
+  </div>
+
+  <!-- Data Entry Page -->
+  <div id="dataEntryPage" class="page">
+    <h2>Enter Blood Pressure Data</h2>
+    <p>(Form will be added here later)</p>
+    <button onclick="goToPage('menuPage')">Back to Menu</button>
+  </div>
+
+  <!-- Graph Page -->
+  <div id="graphPage" class="page">
+    <h2>Graph Data</h2>
+    <p>(Graph will be displayed here later)</p>
+    <button onclick="goToPage('menuPage')">Back to Menu</button>
+  </div>
+
+  <!-- Recommendations Page -->
+  <div id="recommendPage" class="page">
+    <h2>Recommendations</h2>
+    <p>(Recommendations will be displayed here later)</p>
+    <button onclick="goToPage('menuPage')">Back to Menu</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Blood Pressure Monitor App</p>
+  </footer>
+
+  <script>
+    function goToPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
